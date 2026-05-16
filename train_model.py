@@ -11,7 +11,7 @@ from sklearn.metrics import confusion_matrix, precision_score, f1_score, recall_
 sns.set(style='white')
 
 # Load Data
-dataset = pd.read_csv(r'C:\Users\Admin\AVSCODE\CICD\code-2\iris.csv')
+dataset = pd.read_csv(r'C:\Users\venka\Desktop\Naresh Technologies\4 January 2026\27 Jan ~ CICD Pipeline\26th- CICD Pipeline\cicd workflows\iris.csv')
 
 # Feature names (Ensure no extra spaces or parentheses)
 dataset.columns = [colname.strip(' (cm)').replace(" ", "_") for colname in dataset.columns.tolist()]
@@ -35,7 +35,7 @@ X_test = test_data.drop('target', axis=1).values.astype('float32')
 y_test = test_data.loc[:, 'target'].values.astype('int32')
 
 # Logistic Regression
-logreg = LogisticRegression(C=0.0001, solver='lbfgs', max_iter=100, multi_class='multinomial')
+logreg = LogisticRegression(C=0.0001, solver='lbfgs', max_iter=100')
 logreg.fit(X_train, y_train)
 predictions_lr = logreg.predict(X_test)
 
